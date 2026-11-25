@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Store | Online Shopping</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Free delivery on orders over ₦75,000
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <a href="#" class="logo">NOVA<span>STORE.</span></a>
+
+        <nav id="navigation">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button id="cart-button">
+                Bag (<span id="cart-count">0</span>)
+            </button>
+
+            <button class="menu-button" id="menu-button">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <p class="subtitle">THE NOVA COLLECTION</p>
+
+            <h1>
+                Shop smarter.<br>
+                <span>Live better.</span>
+            </h1>
+
+            <p>
+                Discover quality products designed to make
+                your everyday life easier and better.
+            </p>
+
+            <a href="#shop" class="main-button">
+                Shop Collection →
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=1000&q=85"
+                alt="Modern lifestyle products"
+            >
+        </div>
+
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+
+        <div>
+            <h3>✦ Quality Products</h3>
+            <p>Carefully selected products</p>
+        </div>
+
+        <div>
+            <h3>🚚 Fast Delivery</h3>
+            <p>Delivery across Nigeria</p>
+        </div>
+
+        <div>
+            <h3>♡ Easy Returns</h3>
+            <p>14-day return window</p>
+        </div>
+
+        <div>
+            <h3>🔒 Secure Shopping</h3>
+            <p>Shop with confidence</p>
+        </div>
+
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop" id="shop">
+
+        <div class="section-heading">
+            <p class="subtitle">OUR COLLECTION</p>
+            <h2>Explore Our Products</h2>
+            <p>Find something you'll love.</p>
+        </div>
+
+        <!-- Search -->
+        <div class="shop-controls">
+
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Search products..."
+            >
+
+            <select id="sort-select">
+                <option value="featured">Featured</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+            </select>
+
+        </div>
+
+        <!-- Categories -->
+        <div class="categories" id="categories">
+
+            <button class="active" data-category="All">
+                All
+            </button>
+
+            <button data-category="Tech">
+                Tech
+            </button>
+
+            <button data-category="Lifestyle">
+                Lifestyle
+            </button>
+
+            <button data-category="Accessories">
+                Accessories
+            </button>
+
+        </div>
+
+        <!-- Products -->
+        <div class="product-grid" id="product-grid"></div>
+
+        <p id="empty-state" class="hidden">
+            No products found.
+        </p>
+
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <div>
+            <p class="subtitle">ABOUT NOVA STORE</p>
+
+            <h2>Shopping made simple.</h2>
+
+            <p>
+                Nova Store brings together quality, affordability
+                and convenience.
+
+                Our goal is to make online shopping easier by
+                providing products that add value to everyday life.
+            </p>
+
+            <a href="#shop" class="main-button">
+                Explore Products →
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <h2>Stay in the loop.</h2>
+
+        <p>Get updates about new products and special offers.</p>
+
+        <form id="newsletter-form">
+
+            <input
+                type="email"
+                id="newsletter-email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+        <small id="newsletter-message"></small>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Have questions? We'd love to hear from you.</p>
+
+        <a href="mailto:hello@example.com">
+            hello@example.com
+        </a>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <h2>NOVA STORE.</h2>
+
+        <p>Everyday essentials. Better shopping.</p>
+
+        <p>© 2026 Nova Store. All rights reserved.</p>
+
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <!-- Shopping Cart -->
+    <aside id="cart-drawer" class="cart-drawer">
+
+        <div class="cart-heading">
+            <h2>Your Shopping Bag</h2>
+
+            <button id="close-cart">×</button>
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-bottom">
+
+            <h3>
+                Subtotal:
+                <span id="subtotal">₦0</span>
+            </h3>
+
+            <button id="checkout-button">
+                Proceed to Checkout →
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Checkout Modal -->
+    <dialog id="checkout-modal">
+
+        <form id="checkout-form">
+
+            <button type="button" id="close-checkout">
+                ×
+            </button>
+
+            <h2>Checkout</h2>
+
+            <p id="checkout-summary"></p>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Full name"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                required
+            >
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+                required
+            >
+
+            <textarea
+                name="address"
+                placeholder="Delivery address"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Place Demo Order
+            </button>
+
+            <p class="demo-warning">
+                Demo only. No payment will be collected.
+            </p>
+
+        </form>
+
+    </dialog>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
